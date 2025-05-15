@@ -150,8 +150,7 @@ Pemahaman Data: Periksa informasi data, statistik deskriptif, duplikat, missing 
 Penyimpanan Model: Simpan model terbaik dan daftar fitur yang digunakannya ke file untuk penggunaan di masa depan.
 
 ### Sistem Prediksi (app.py)
-Sistem ini adalah **aplikasi web interaktif berbasis Streamlit** untuk memprediksi **risiko dropout mahasiswa** berdasarkan lima parameter utama akademik dan finansial dengan memanfaatkan model machine learning XGBoost yang sudah dilatih dan disimpan.
-Prototype model klasifikasi disajikan melalui aplikasi Streamlit.
+Sistem ini adalah **aplikasi web interaktif berbasis Streamlit** untuk memprediksi **risiko dropout mahasiswa** berdasarkan lima parameter utama akademik dan finansial dengan memanfaatkan model machine learning XGBoost yang sudah dilatih dan disimpan. Sistem prediksi dijalankan melalui Streamlit, berikut cara menjalankannya:
 
 ```bash
 # Jalankan aplikasi Streamlit
