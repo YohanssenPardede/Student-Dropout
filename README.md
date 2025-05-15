@@ -4,11 +4,13 @@
 Jaya Jaya Institut merupakan institusi pendidikan tinggi yang telah berdiri sejak tahun 2000. Institusi ini telah mencetak banyak lulusan berprestasi dan memiliki reputasi yang sangat baik di kalangan akademisi dan industri. Namun, Jaya Jaya Institut menghadapi tantangan serius yaitu tingginya angka dropout di kalangan mahasiswanya. Hal ini tidak hanya berdampak pada reputasi, tetapi juga pada aspek finansial dan akreditasi institusi.
 
 ### Permasalahan Bisnis
-* Angka dropout yang tinggi mengurangi retensi mahasiswa dan pendapatan UKT.
+Proyek ini bertujuan untuk menyelesaikan permasalahan bisnis utama berikut:
+* Angka dropout mahasiswa yang tinggi.
 * Sulitnya mengidentifikasi mahasiswa yang berisiko drop out secara dini.
 * Minimnya dashboard monitoring performa mahasiswa untuk tim akademik dan manajemen.
 
 ### Cakupan Proyek
+Proyek ini mencakup langkah-langkah berikut:
 * Eksplorasi dan analisis data mahasiswa (demografis, sosial-ekonomi, performa semester 1 & 2).
 * Pembuatan model klasifikasi untuk memprediksi risiko dropout mahasiswa.
 * Penyusunan dashboard bisnis untuk memonitor performa mahasiswa dan visualisasi faktor dropout mahasiswa.
@@ -31,7 +33,6 @@ password: root123
 ```
 
 Adapun fitur-fitur pada dashboard sebagai berikut:
-Berikut ringkasan **parameter (metrik) utama** pada dashboard, **tujuan** masing‑masing, dan **hasil temuan** berdasarkan data:
 1. **Jumlah Mahasiswa Aktif / Lulus / Keluar**
    * **Tujuan:** Menyajikan snapshot jumlah total mahasiswa dalam tiga kategori utama.
    * **Hasil:**
@@ -103,8 +104,7 @@ Berikut ringkasan **parameter (metrik) utama** pada dashboard, **tujuan** masing
 
 ## Menjalankan Sistem Machine Learning
 ### Sistem Pembuatan Model (notebook.ipynb)
-Sistem *machine learning* yang diimplementasikan dalam notebook ini bertujuan untuk membuat model **prediksi dropout mahasiswa**, yaitu kemungkinan seorang mahasiswa untuk keluar/dropout dari institut. Algoritma yang digunakan adalah **XGBoost (Extreme Gradient Boosting)**, XGBoost adalah salah satu algoritma machine learning berbasis ensemble yang sangat populer dan kuat, terutama untuk tugas klasifikasi dan regresi. Bekerja berdasarkan teknik gradient boosting, yaitu membangun model secara bertahap menggunakan pohon keputusan (decision trees). Sebelum anda menjalankannya, anda perlu menyiapkan beberapa hal sebagai berikut
-
+Sistem *machine learning* yang diimplementasikan dalam notebook ini bertujuan untuk membuat model **prediksi dropout mahasiswa**, yaitu kemungkinan seorang mahasiswa untuk keluar/dropout dari institut. Algoritma yang digunakan adalah **XGBoost (Extreme Gradient Boosting)**, XGBoost adalah salah satu algoritma machine learning berbasis ensemble yang sangat populer dan kuat, terutama untuk tugas klasifikasi dan regresi. XGBoost bekerja berdasarkan teknik gradient boosting, yaitu membangun model secara bertahap menggunakan pohon keputusan (decision trees). Sebelum Anda menjalankan notebook, Anda perlu menyiapkan beberapa hal sebagai berikut:
 1. **Virtual Environment:**
    Membuat *virtual environment* akan mengisolasi dependensi proyek dan mencegah konflik dengan *package* sistem.
    **Menggunakan `venv` (bawaan Python):**
@@ -158,27 +158,24 @@ Prototype model klasifikasi disajikan melalui aplikasi Streamlit.
 streamlit run app.py
 ```
 
-Akses prototype: `http://localhost:8501`
-Model dilatih menggunakan Random Forest dengan fitur-fitur utama:
+Anda juga dapat mengakses sistem ini melalui link berikut: https://jip6mqbr5jjgaup9jxwlph.streamlit.app/
 
-###  **Alur Kerja Sistem **
-1. **Konfigurasi halaman**: Mengatur tampilan awal dan metadata aplikasi web.
-2. **Memuat model**: Model prediksi yang telah dilatih dimuat dari file `model.pkl`.
-3. **Tampilan antarmuka pengguna**: User mengisi data input berupa:
+###  **Alur Kerja Sistem**
+1. **Memuat model**: Model prediksi yang telah dilatih dimuat dari file `model.pkl`.
+2. **Tampilan antarmuka pengguna**: User mengisi data input berupa:
    * Jumlah mata kuliah lulus semester 1 dan 2
-   * Status pembayaran (tepat waktu atau tidak)
+   * Status pembayaran
    * Status tunggakan biaya
    * Jumlah mata kuliah yang diambil semester 2
-4. **Prediksi dilakukan**: Input pengguna diubah menjadi array numerik dan diberikan ke model untuk menghitung **probabilitas dropout**.
-5. **Output ditampilkan**: Sistem menunjukkan persentase risiko dropout, visualisasi progress bar, dan rekomendasi tindakan (peringatan atau pujian).
-6. **Footer**: Memberi kredit pembuat aplikasi.
+3. **Prediksi dilakukan**: Input pengguna diubah menjadi array numerik dan diberikan ke model untuk menghitung **probabilitas dropout**.
+4. **Output ditampilkan**: Sistem menunjukkan persentase risiko dropout, visualisasi progress bar, dan rekomendasi tindakan (peringatan atau pujian).
 
 ## Conclusion
-
-Proyek ini berhasil membangun sistem prediksi dini mahasiswa berisiko dropout dengan **Recall kelas Dropout \~75%**. Dashboard bisnis memberikan visibilitas real-time terhadap KPI kunci institusi. Dengan informasi ini, tim akademik dapat melakukan intervensi lebih awal.
+Proyek ini berhasil merespons tantangan utama yang dihadapi Jaya Jaya Institut, yaitu tingginya angka dropout mahasiswa, dengan pendekatan berbasis data dan machine learning. Dengan membangun model prediksi dropout menggunakan algoritma XGBoost, institusi kini dapat mengidentifikasi mahasiswa berisiko secara dini, terutama dengan hanya lima indikator utama akademik dan finansial mahasiswa. Business dashboard yang dikembangkan mempermudah tim akademik dan manajemen memantau performa mahasiswa secara menyeluruh, mengamati pola dropout, dan mengambil keputusan berbasis data. Dengan akurasi model yang baik (ROC AUC: 96,8%) dan visualisasi yang informatif, proyek ini memberikan kemudahan bagi perbaikan sistem akademik dan kebijakan pencegahan dropout di masa depan.
 
 ### Rekomendasi Action Items
-* **Remedial dan Mentoring**: Identifikasi mahasiswa dengan potensi kelulusan rendah, lalu adakan sesi mentoring bagi mereka.
-* **Skema Pembayaran UKT Fleksibel**: Tawarkan opsi cicilan dan dana darurat untuk meningkatkan pembayaran UKT.
-* **Academic Advising**: Konsultasi beban mata kuliah tiap akhir semester untuk menghindari overload.
+Berikut adalah beberapa rekomendasi action item yang dapat dilakukan Jaya Jaya Institut guna mengatasi tingginya tingkat dropout mahasiswa:
+* **Remedial dan mentoring**: Identifikasi mahasiswa dengan potensi kelulusan rendah, lalu adakan sesi mentoring intensif bagi mereka.
+* **Skema pembayaran UKT yang fleksibel**: Tawarkan opsi cicilan dan dana darurat untuk meningkatkan pembayaran UKT tepat waktu.
+* **Bimbingan akademik**: Konsultasi beban mata kuliah tiap akhir semester kepada dosen pembimbing untuk menghindari overload SKS/mata kuliah.
 * **Peer Mentoring**: Program bimbingan dari teman sebaya untuk meningkatkan pemahaman belajar.
